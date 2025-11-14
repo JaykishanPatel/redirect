@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirecting…</title>
+  </head>
+  <body>
+    <p>Redirecting to the study…</p>
+
+    <script>
+      // Read query params sent by Prolific
+      const params = new URLSearchParams(window.location.search);
+      const pid = params.get("PROLIFIC_PID");
+      const sid = params.get("SESSION_ID");
+      const study = params.get("STUDY_ID");
+
+      // Build your Google Forms URL with encoded values
+      const formUrl =
+        "https://docs.google.com/forms/d/e/1FAIpQLScYxoL4hVoUqgmTl81Jn08bC_7z62zeY9fW_rXlpaoBmsrtBw/viewform" +
+        "?usp=pp_url" +
+        "&entry.70406106=" + encodeURIComponent(pid) +
+        "&entry.1734182613=" + encodeURIComponent(study) +
+        "&entry.453583262=" + encodeURIComponent(sid);
+
+      // Redirect user
+      window.location.href = formUrl;
+    </script>
+  </body>
+</html>
